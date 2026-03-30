@@ -163,28 +163,47 @@ function openWA(e) {
   e.preventDefault();
 
   Swal.fire({
-    title: 'Lanjut ke WhatsApp?',
-    text: 'Kamu akan diarahkan ke chat WhatsApp',
-    icon: 'question',
-    showCancelButton: true,
-    confirmButtonText: 'Ya, lanjut',
-    cancelButtonText: 'Batal',
-    confirmButtonColor: '#00c4cc',
-    background: '#142337',
-    color: '#fff'
-  }).then((result) => {
-    if (result.isConfirmed) {
-      window.open('https://wa.me/6285810287828', '_blank');
-    }
-  });
+  title: 'Lanjut ke WhatsApp?',
+  html: 'Kamu akan diarahkan ke chat WhatsApp',
+
+  imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg',
+  imageWidth: 70,
+
+  showCancelButton: true,
+  confirmButtonText: 'Ya, lanjut',
+  cancelButtonText: 'Batal',
+
+  confirmButtonColor: '#25D366',
+  cancelButtonColor: '#2a3b55',
+
+  background: '#142337',
+  color: '#fff',
+  heightAuto: false,
+
+  didOpen: () => {
+    const img = document.querySelector('.swal2-image');
+
+    img.style.animation = 'waPulse 1.5s infinite';
+  }
+
+}).then((result) => {
+  if (result.isConfirmed) {
+    window.open('https://wa.me/6285810287828', '_blank');
+  }
+});
 }
 </script>
     <script>
 function comingSoon() {
+    e.preventDefault();
+    
   Swal.fire({
   title: 'Coming Soon 🚧',
   html: 'Web Store masih dalam pengembangan!<br>Stay tuned ya 👀',
-  icon: 'warning',
+
+  // 🔥 ICON DIGANTI BIAR BISA DIANIMASI
+  imageUrl: 'https://cdn-icons-png.flaticon.com/512/1828/1828817.png',
+  imageWidth: 70,
 
   confirmButtonText: 'Oke Siap',
   showCancelButton: false,
@@ -208,6 +227,7 @@ function comingSoon() {
     const title = document.querySelector('.swal2-title');
     const text = document.querySelector('.swal2-html-container');
     const button = document.querySelector('.swal2-confirm');
+    const img = document.querySelector('.swal2-image');
 
     // 🔥 FONT
     title.style.fontFamily = 'Poppins, sans-serif';
@@ -224,10 +244,13 @@ function comingSoon() {
     popup.style.boxShadow = '0 10px 40px rgba(0,0,0,0.6)';
     popup.style.border = '1px solid rgba(255,255,255,0.08)';
 
-    // 🔥 BUTTON EFFECT
+    // 🔥 BUTTON
     button.style.borderRadius = '8px';
     button.style.padding = '10px 20px';
     button.style.boxShadow = '0 0 10px rgba(0,196,204,0.5)';
+
+    // 🔥 ANIMASI ICON (INI YANG LU MAU)
+    img.style.animation = 'pulseIcon 1.5s infinite';
   }
 });
 }
