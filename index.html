@@ -20,8 +20,9 @@
         rel="stylesheet">
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body> 
@@ -138,9 +139,7 @@
             <span class="tech-tag">Pterodactyl API</span>
             <span class="tech-tag">Payment Gateway Integration</span>
         </div>
-        <a href=" https://store-panel.netlify.app" target="_blank" class="project-link cta-button">
-            <i class="fas fa-store"></i> Kunjungi Store
-        </a>
+<a href="#" class="cta-button" onclick="comingSoon()">Web Store</a>
     </div>
 </section>
 
@@ -158,8 +157,28 @@
             mirror: false
         });
     </script>
+    <script>
+function comingSoon() {
+  Swal.fire({
+    title: 'Coming Soon 🚧',
+    text: 'Web Store masih dalam pengembangan!',
+    icon: 'info',
+    confirmButtonText: 'Oke',
+    background: '#142337',
+    color: '#fff',
+    confirmButtonColor: '#00c4cc',
+    backdrop: 'rgba(0,0,0,0.7)',
+    showClass: {
+      popup: 'animate__animated animate__fadeInDown'
+    },
+    hideClass: {
+      popup: 'animate__animated animate__fadeOutUp'
+    }
+  });
+}
+</script>
     <script src="main.js"></script>
-    <script src="particles.js"></script>
+    <script src="particles.js"></script> 
 </body>
 
 </html>
