@@ -74,10 +74,9 @@
             <div class="social-links" data-aos="fade-up" data-aos-delay="700">
 
  
-                <a href="https://wa.me/6285810287828" class="social-link" target="_blank"
-                    title="WhatsApp Chats" rel="noopener noreferrer"
-                    aria-label="Ngobrol Dengan Dhikzx Cloud"><i class="fab fa-whatsapp"></i></a>
- 
+                <a href="javascript:void(0)" class="social-link" onclick="openWA(event)">
+  <i class="fab fa-whatsapp"></i>
+</a>
             </div>
         </section>
 
@@ -97,7 +96,7 @@
             <span>Git & GitHub</span>
         </div>
         <div class="skill-item" data-skill="MongoDB" data-aos="zoom-in" data-aos-delay="600">
-            <i class="fas fa-database"></i>
+            <i class="fas fa-database"></i> 
             <span>MongoDB</span>
         </div>
         <div class="skill-item" data-skill="HTML" data-aos="zoom-in" data-aos-delay="700">
@@ -139,7 +138,9 @@
             <span class="tech-tag">Pterodactyl API</span>
             <span class="tech-tag">Payment Gateway Integration</span>
         </div>
-<a href="#" class="cta-button" onclick="comingSoon()">Web Store</a>
+<a href="javascript:void(0)" class="cta-button" onclick="comingSoon(event)">
+  <i class="fas fa-store"></i> Web Store
+</a>
     </div>
 </section>
 
@@ -157,6 +158,27 @@
             mirror: false
         });
     </script>
+    <script>
+function openWA(e) {
+  e.preventDefault();
+
+  Swal.fire({
+    title: 'Lanjut ke WhatsApp?',
+    text: 'Kamu akan diarahkan ke chat WhatsApp',
+    icon: 'question',
+    showCancelButton: true,
+    confirmButtonText: 'Ya, lanjut',
+    cancelButtonText: 'Batal',
+    confirmButtonColor: '#00c4cc',
+    background: '#142337',
+    color: '#fff'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      window.open('https://wa.me/6285810287828', '_blank');
+    }
+  });
+}
+</script>
     <script>
 function comingSoon() {
   Swal.fire({
