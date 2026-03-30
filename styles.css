@@ -15,10 +15,10 @@
 --hover-effect-light: rgba(0, 196, 204, 0.1);
 }
 
-{
-margin: 0;
-padding: 0;
-box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 
@@ -220,6 +220,12 @@ margin-right: auto;
 .bio strong {
 color: var(--accent-color-1);
 font-weight: 600;
+}
+
+.profile-card,
+.social-links {
+  position: relative;
+  z-index: 9999;
 }
 
 .social-links {
@@ -626,6 +632,14 @@ margin: 2rem auto;
     justify-content: center;  
 }
 
+}
+
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* 🔥 ini kunci */
+  pointer-events: none;
 }
 
 @media (max-width: 480px) {
