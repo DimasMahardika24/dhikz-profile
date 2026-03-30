@@ -74,7 +74,7 @@
             <div class="social-links" data-aos="fade-up" data-aos-delay="700">
 
  
-                <a href="#" class="social-link" onclick="openWA(event)">
+                <a href="javascript:void(0)" class="social-link" onclick="openWA(event)">
   <i class="fab fa-whatsapp"></i>
 </a>
             </div>
@@ -96,7 +96,7 @@
             <span>Git & GitHub</span>
         </div>
         <div class="skill-item" data-skill="MongoDB" data-aos="zoom-in" data-aos-delay="600">
-            <i class="fas fa-database"></i> 
+            <i class="fas fa-database"></i>
             <span>MongoDB</span>
         </div>
         <div class="skill-item" data-skill="HTML" data-aos="zoom-in" data-aos-delay="700">
@@ -138,7 +138,7 @@
             <span class="tech-tag">Pterodactyl API</span>
             <span class="tech-tag">Payment Gateway Integration</span>
         </div>
-<a href="#" class="cta-button" onclick="comingSoon(event)">
+<a href="javascript:void(0)" class="cta-button" onclick="comingSoon(event)">
   <i class="fas fa-store"></i> Web Store
 </a>
     </div>
@@ -180,26 +180,56 @@ function openWA(e) {
 }
 </script>
     <script>
-function comingSoon(e) {
-  e.preventDefault(); // 🔥 ini yang menghentikan scroll
-
+function comingSoon() {
   Swal.fire({
-    title: 'Coming Soon 🚧',
-    text: 'Web Store masih dalam pengembangan!',
-    icon: 'info',
-    confirmButtonText: 'Oke',
-    background: '#142337',
-    color: '#fff',
-    confirmButtonColor: '#00c4cc',
-    backdrop: 'rgba(0,0,0,0.7)',
-    heightAuto: false,
-    showClass: {
-      popup: 'animate__animated animate__fadeInDown'
-    },
-    hideClass: {
-      popup: 'animate__animated animate__fadeOutUp'
-    }
-  });
+  title: 'Coming Soon 🚧',
+  html: 'Web Store masih dalam pengembangan!<br>Stay tuned ya 👀',
+  icon: 'warning',
+
+  confirmButtonText: 'Oke Siap',
+  showCancelButton: false,
+
+  background: '#142337',
+  color: '#e0e6f0',
+  confirmButtonColor: '#00c4cc',
+
+  backdrop: 'rgba(0,0,0,0.7)',
+  heightAuto: false,
+
+  showClass: {
+    popup: 'animate__animated animate__fadeInDown'
+  },
+  hideClass: {
+    popup: 'animate__animated animate__fadeOutUp'
+  },
+
+  didOpen: () => {
+    const popup = document.querySelector('.swal2-popup');
+    const title = document.querySelector('.swal2-title');
+    const text = document.querySelector('.swal2-html-container');
+    const button = document.querySelector('.swal2-confirm');
+
+    // 🔥 FONT
+    title.style.fontFamily = 'Poppins, sans-serif';
+    title.style.fontWeight = '600';
+    title.style.letterSpacing = '1px';
+
+    text.style.fontFamily = 'Open Sans, sans-serif';
+    text.style.opacity = '0.9';
+
+    button.style.fontFamily = 'Poppins, sans-serif';
+
+    // 🔥 STYLE MODERN
+    popup.style.borderRadius = '14px';
+    popup.style.boxShadow = '0 10px 40px rgba(0,0,0,0.6)';
+    popup.style.border = '1px solid rgba(255,255,255,0.08)';
+
+    // 🔥 BUTTON EFFECT
+    button.style.borderRadius = '8px';
+    button.style.padding = '10px 20px';
+    button.style.boxShadow = '0 0 10px rgba(0,196,204,0.5)';
+  }
+});
 }
 </script>
     <script src="main.js"></script>
