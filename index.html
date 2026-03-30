@@ -4,141 +4,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DhikzxCloud - Profil Dimas Mahardika | Developer Bot WhatsApp</title>
-    
-    <meta name="description" content="Halaman profil Dimas Mahardika, developer bot WhatsApp (Miwa Botz) dan coder asal Jakarta. Fokus pada JavaScript, Node.js, dan otomatisasi digital.">
-    <meta name="keywords" content="Dimas Mahardika, DhikzxCloud, Lynxxx Botz, Bot WhatsApp, Developer JavaScript, Node.js, Jakarta, Coding">
-    <meta name="author" content="Dimas Mahardika">
+    <title>DhikzxCloud - Profil Dimas Mahardika</title>
 
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://store-panel.netlify.app"> 
-    <meta property="og:title" content="DhikzxCloud - Profil Dimas Mahardika">
-    <meta property="og:description" content="Developer Bot WhatsApp & Otomatisasi Digital.">
-    <meta property="og:image" content="https://store-panel.netlify.app/dikz.jpg"> 
-    <meta property="og:image:type" content="image/jpeg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
+    <link rel="icon" href="favicon.png">
 
-    <link rel="icon" type="image/png" href="favicon.png">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- FONT & ICON -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- AOS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
+
+    <!-- SWEET ALERT -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
+    <!-- CSS KAMU -->
     <link rel="stylesheet" href="styles.css">
-
-    <style>
-        /* === SWEETALERT MODERN SOFT DARK === */
-        .swal2-popup {
-            background: rgba(18, 18, 18, 0.85) !important;
-            backdrop-filter: blur(20px);
-            border-radius: 18px !important;
-            border: 1px solid rgba(255,255,255,0.08);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.6);
-            padding: 30px;
-        }
-
-        .swal2-title {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 600;
-            color: #ffffff;
-            letter-spacing: 1px;
-        }
-
-        .swal2-html-container {
-            font-family: 'Open Sans', sans-serif;
-            color: #cfcfcf;
-            font-size: 14px;
-        }
-
-        .swal2-confirm {
-            background: linear-gradient(135deg, #4facfe, #00f2fe) !important;
-            border-radius: 10px !important;
-            padding: 10px 18px;
-            font-weight: 500;
-            box-shadow: 0 5px 20px rgba(0, 242, 254, 0.3);
-            transition: 0.3s;
-        }
-
-        .swal2-confirm:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0, 242, 254, 0.5);
-        }
-
-        .custom-icon {
-            width: 70px;
-            height: 70px;
-            margin: 0 auto 15px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.05);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: inset 0 0 15px rgba(255,255,255,0.05);
-        }
-
-        .custom-icon i {
-            font-size: 30px;
-            color: #4facfe;
-        }
-    </style>
 </head>
 
-<body> 
-    
+<body>
+
     <div class="background-effects">
         <canvas id="particles-js"></canvas>
-        <div class="quantum-waves"></div>
-        <div class="binary-rain" id="binaryRain"></div>
     </div>
 
     <main class="container">
-        <section class="profile-card" data-aos="fade-up" data-aos-duration="1000">
-            <div class="profile-img-container" data-aos="zoom-in" data-aos-delay="200">
+
+        <!-- PROFILE -->
+        <section class="profile-card" data-aos="fade-up">
+            <div class="profile-img-container">
                 <img src="dikz.jpg" class="profile-img">
             </div>
-            <h1 class="name" data-aos="fade-up" data-aos-delay="400">DHIKZX CLOUD</h1>
-            <p class="tagline" data-aos="fade-up" data-aos-delay="500">"Tidak semua bisa dimiliki, tetapi semuanya bisa disyukuri"</p>
-            <p class="bio" data-aos="fade-up" data-aos-delay="600">
-                Halo! Saya Dimas Mahardika, sosok di balik DhikzxCloud dan pengelola Miwa Botz...
+
+            <h1 class="name">DHIKZX CLOUD</h1>
+            <p class="tagline">"Tidak semua bisa dimiliki, tetapi semuanya bisa disyukuri"</p>
+
+            <p class="bio">
+                Halo! Saya Dimas Mahardika, developer bot WhatsApp dan automation.
             </p>
 
-            <div class="social-links" data-aos="fade-up" data-aos-delay="700">
+            <div class="social-links">
                 <a href="https://wa.me/6285810287828" class="social-link" target="_blank">
                     <i class="fab fa-whatsapp"></i>
                 </a>
             </div>
         </section>
 
-        <section class="project-section skills-section">
+        <!-- SKILL -->
+        <section class="skills-section">
+            <h2 class="section-title">Keahlian</h2>
+
+            <div class="skills-grid">
+                <div class="skill-item"><i class="fab fa-js"></i><span>JavaScript</span></div>
+                <div class="skill-item"><i class="fab fa-node-js"></i><span>Node.js</span></div>
+                <div class="skill-item"><i class="fab fa-git-alt"></i><span>Git</span></div>
+            </div>
+        </section>
+
+        <!-- PROJECT -->
+        <section class="project-section">
+            <h2 class="section-title">Proyek</h2>
+
             <div class="project-card">
-                <h3>Buy Panel Pterodoctyle Automatic Store</h3>
+                <h3>Store Panel</h3>
+                <p class="project-desc">Toko otomatis panel hosting</p>
+
                 <a href="javascript:void(0)" id="btn-store" class="project-link cta-button">
                     <i class="fas fa-store"></i> Kunjungi Store
                 </a>
             </div>
         </section>
+
     </main>
 
+    <footer class="footer">
+        <p>© 2025 DhikzxCloud</p>
+    </footer>
+
+    <!-- SCRIPT -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
     <script>
-        document.getElementById('btn-store').addEventListener('click', function() {
+        AOS.init();
+
+        document.getElementById('btn-store').addEventListener('click', function () {
             Swal.fire({
                 html: `
                     <div class="custom-icon">
                         <i class="fas fa-tools"></i>
                     </div>
-                    <h2 style="margin-bottom:10px;">Maintenance</h2>
+                    <h2>Maintenance</h2>
                     <p>Website sedang dalam peningkatan sistem.<br>Silakan kembali lagi nanti.</p>
                 `,
-                showConfirmButton: true,
-                confirmButtonText: 'Oke, Siap',
+                confirmButtonText: 'Mengerti',
                 background: 'transparent',
-                backdrop: `
-                    rgba(0,0,0,0.7)
-                `,
+                backdrop: 'rgba(5,10,20,0.8)',
                 showClass: {
                     popup: 'animate__animated animate__fadeInUp'
                 },
@@ -150,4 +110,4 @@
     </script>
 
 </body>
-                </html>
+</html>
