@@ -4,110 +4,185 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DhikzxCloud - Profil Dimas Mahardika</title>
+    <title>DhikzxCloud - Profil Dimas Mahardika | Developer Bot WhatsApp</title>
+    
+    <meta name="description" content="Halaman profil Dimas Mahardika, developer bot WhatsApp (Miwa Botz) dan coder asal Jakarta. Fokus pada JavaScript, Node.js, dan otomatisasi digital.">
+    <meta name="keywords" content="Dimas Mahardika, DhikzxCloud, Lynxxx Botz, Bot WhatsApp, Developer JavaScript, Node.js, Jakarta, Coding">
+    <meta name="author" content="Dimas Mahardika">
 
-    <link rel="icon" href="favicon.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://store-panel.netlify.app"> 
+    <meta property="og:title" content="DhikzxCloud - Profil Dimas Mahardika">
+    <meta property="og:description" content="Developer Bot WhatsApp & Otomatisasi Digital.">
+    <meta property="og:image" content="https://store-panel.netlify.app/dikz.jpg"> 
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
 
-    <!-- FONT & ICON -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="favicon.png">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- AOS -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-    <!-- SWEET ALERT -->
+    
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
-    <!-- CSS KAMU -->
     <link rel="stylesheet" href="styles.css">
+
+    <style>
+        /* Custom Style untuk SweetAlert agar sesuai tema */
+        .swal2-popup {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px !important;
+        }
+    </style>
 </head>
 
-<body>
-
+<body> 
+    
     <div class="background-effects">
         <canvas id="particles-js"></canvas>
+        <div class="quantum-waves"></div>
+        <div class="binary-rain" id="binaryRain"></div>
+        <div class="space-element tesseract">
+            <svg viewBox="0 0 100 100">
+                <path d="M50,0 L100,50 L50,100 L0,50 Z" stroke="rgba(255,255,255,0.1)" fill="none" stroke-width="1" />
+                <path d="M25,25 L75,25 L75,75 L25,75 Z" stroke="rgba(255,255,255,0.1)" fill="none" stroke-width="1" />
+                <line x1="25" y1="25" x2="50" y2="0" stroke="rgba(255,255,255,0.1)" stroke-width="0.5" />
+                <line x1="75" y1="25" x2="100" y2="50" stroke="rgba(255,255,255,0.1)" stroke-width="0.5" />
+                <line x1="75" y1="75" x2="50" y2="100" stroke="rgba(255,255,255,0.1)" stroke-width="0.5" />
+                <line x1="25" y1="75" x2="0" y2="50" stroke="rgba(255,255,255,0.1)" stroke-width="0.5" />
+            </svg>
+        </div>
+        <div class="space-element wireframe-sphere">
+            <svg viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" stroke="rgba(255,255,255,0.1)" fill="none" stroke-width="0.5" />
+                <path d="M50,5 A45,45 0 0,1 50,95 A45,45 0 0,1 50,5" stroke="rgba(255,255,255,0.1)" fill="none"
+                    stroke-width="0.5" />
+                <path d="M50,5 A45,45 0 0,0 50,95 A45,45 0 0,0 50,5" stroke="rgba(255,255,255,0.1)" fill="none"
+                    stroke-width="0.5" />
+                <path d="M5,50 A45,45 0 0,1 95,50" stroke="rgba(255,255,255,0.1)" fill="none" stroke-width="0.5" />
+            </svg>
+        </div>
     </div>
+    
+
 
     <main class="container">
-
-        <!-- PROFILE -->
-        <section class="profile-card" data-aos="fade-up">
-            <div class="profile-img-container">
-                <img src="dikz.jpg" class="profile-img">
+        <section class="profile-card" data-aos="fade-up" data-aos-duration="1000">
+            <div class="profile-img-container" data-aos="zoom-in" data-aos-delay="200">
+                <img src="dikz.jpg" alt="Bio Data Dhikzx Cloud, Pengembang Bot WhatsApp Lynxxx Botz"
+                    class="profile-img">
             </div>
-
-            <h1 class="name">DHIKZX CLOUD</h1>
-            <p class="tagline">"Tidak semua bisa dimiliki, tetapi semuanya bisa disyukuri"</p>
-
-            <p class="bio">
-                Halo! Saya Dimas Mahardika, developer bot WhatsApp dan automation.
+            <h1 class="name" data-aos="fade-up" data-aos-delay="400">DHIKZX CLOUD</h1>
+            <p class="tagline" data-aos="fade-up" data-aos-delay="500">"Tidak semua bisa dimiliki, tetapi semuanya bisa disyukuri"</p>
+            <p class="bio" data-aos="fade-up" data-aos-delay="600">
+                Halo! Saya Dimas Mahardika, sosok di balik DhikzxCloud dan pengelola Miwa Botz. Saya berasal dari Jakarta dan aktif mengembangkan bot WhatsApp menggunakan JavaScript dan Node.js.<br><br>
+                Semuanya saya jalani bukan karena merasa jago, tapi karena niat, rasa ingin belajar, dan usaha untuk mencukupi kebutuhan lewat hal yang saya pahami.<br><br>
+                Saya percaya, semua orang punya titik awal yang berbeda. Nggak perlu sempurna untuk mulai, cukup berani untuk mencoba. Karena dari keberanian itulah kita belajar dan menemukan versi terbaik dari diri sendiri.
             </p>
 
-            <div class="social-links">
-                <a href="https://wa.me/6285810287828" class="social-link" target="_blank">
-                    <i class="fab fa-whatsapp"></i>
+            <div class="social-links" data-aos="fade-up" data-aos-delay="700">
+                <a href="https://wa.me/6285810287828" class="social-link" target="_blank"
+                    title="WhatsApp Chats" rel="noopener noreferrer"
+                    aria-label="Ngobrol Dengan Dhikzx Cloud"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </section>
+
+        <section class="skills-section" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+            <h2 class="section-title">Keahlian Teknis</h2>
+            <div class="skills-grid">
+                <div class="skill-item" data-skill="JavaScript" data-aos="zoom-in" data-aos-delay="300">
+                    <i class="fab fa-js"></i>
+                    <span>JavaScript</span>
+                </div>
+                <div class="skill-item" data-skill="Node.js" data-aos="zoom-in" data-aos-delay="400">
+                    <i class="fab fa-node-js"></i>
+                    <span>Node.js</span>
+                </div>
+                <div class="skill-item" data-skill="Git" data-aos="zoom-in" data-aos-delay="500">
+                    <i class="fab fa-git-alt"></i>
+                    <span>Git & GitHub</span>
+                </div>
+                <div class="skill-item" data-skill="MongoDB" data-aos="zoom-in" data-aos-delay="600">
+                    <i class="fas fa-database"></i>
+                    <span>MongoDB</span>
+                </div>
+                <div class="skill-item" data-skill="HTML" data-aos="zoom-in" data-aos-delay="700">
+                    <i class="fab fa-html5"></i>
+                    <span>HTML5</span>
+                </div>
+                <div class="skill-item" data-skill="CSS" data-aos="zoom-in" data-aos-delay="800">
+                    <i class="fab fa-css3-alt"></i>
+                    <span>CSS3</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-section skills-section" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+            <h2 class="section-title">Proyek Unggulan</h2>
+            <div class="project-card" data-aos="fade-up" data-aos-delay="400">
+                <h3>Miwa Botz WhatsApp Assistance</h3>
+                <p class="project-desc">
+                    Bot WhatsApp berbasis Node.js dan Baileys yang menyediakan berbagai fitur otomatisasi dan hiburan.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">MongoDB</span>
+                </div>
+                <a href="https://wa.me/15814048209?text=.menu" target="_blank" class="project-link cta-button">
+                    <i class="fas fa-robot"></i> Kunjungi Bot
                 </a>
             </div>
-        </section>
 
-        <!-- SKILL -->
-        <section class="skills-section">
-            <h2 class="section-title">Keahlian</h2>
-
-            <div class="skills-grid">
-                <div class="skill-item"><i class="fab fa-js"></i><span>JavaScript</span></div>
-                <div class="skill-item"><i class="fab fa-node-js"></i><span>Node.js</span></div>
-                <div class="skill-item"><i class="fab fa-git-alt"></i><span>Git</span></div>
-            </div>
-        </section>
-
-        <!-- PROJECT -->
-        <section class="project-section">
-            <h2 class="section-title">Proyek</h2>
-
-            <div class="project-card">
-                <h3>Store Panel</h3>
-                <p class="project-desc">Toko otomatis panel hosting</p>
-
+            <div class="project-card" data-aos="fade-up" data-aos-delay="500">
+                <h3>Buy Panel Pterodoctyle Automatic Store</h3>
+                <p class="project-desc">
+                    Sistem toko otomatis untuk pembelian panel hosting Pterodactyl dengan integrasi Payment Gateway.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">MySQL</span>
+                    <span class="tech-tag">Pterodactyl API</span>
+                </div>
                 <a href="javascript:void(0)" id="btn-store" class="project-link cta-button">
                     <i class="fas fa-store"></i> Kunjungi Store
                 </a>
             </div>
         </section>
-
     </main>
 
     <footer class="footer">
-        <p>© 2025 DhikzxCloud</p>
+        <p>&copy; 2025 — DhikzxCloud. Hak Cipta Dilindungi Undang-Undang.</p>
     </footer>
 
-    <!-- SCRIPT -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
     <script>
-        AOS.init();
+        AOS.init({ once: true, mirror: false });
 
-        document.getElementById('btn-store').addEventListener('click', function () {
+        // LOGIKA POP-UP MAINTENANCE
+        document.getElementById('btn-store').addEventListener('click', function() {
             Swal.fire({
-                html: `
-                    <div class="custom-icon">
-                        <i class="fas fa-tools"></i>
-                    </div>
-                    <h2>Maintenance</h2>
-                    <p>Website sedang dalam peningkatan sistem.<br>Silakan kembali lagi nanti.</p>
-                `,
-                confirmButtonText: 'Mengerti',
-                background: 'transparent',
-                backdrop: 'rgba(5,10,20,0.8)',
+                title: 'MAINTENANCE',
+                text: 'Mohon Maaf, Website Sedang Maintenance untuk peningkatan sistem.',
+                icon: 'warning',
+                background: '#121212',
+                color: '#ffffff',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'Siap, Ditunggu!',
                 showClass: {
-                    popup: 'animate__animated animate__fadeInUp'
+                    popup: 'animate__animated animate__fadeInDown'
                 },
                 hideClass: {
-                    popup: 'animate__animated animate__fadeOutDown'
+                    popup: 'animate__animated animate__fadeOutUp'
                 }
             });
         });
     </script>
-
+    <script src="main.js"></script>
+    <script src="particles.js"></script>
 </body>
+
 </html>
