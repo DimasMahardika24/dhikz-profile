@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Payment - DhikzxCloud</title>
+    <meta name="description" content="QR All Payment milik Dhikz.">
+    <meta name="theme-color" content="#0a0e1a">
+    <meta name="robots" content="noindex">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230a0e1a'/%3E%3Ctext x='32' y='43' font-size='30' font-family='Arial' font-weight='900' text-anchor='middle' fill='%2300c4cc'%3ED%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <canvas id="bg" aria-hidden="true"></canvas>
+    <div class="orb a" aria-hidden="true"></div>
+    <div class="orb b" aria-hidden="true"></div>
+
+    <main class="pw" style="max-width:460px">
+        <header class="cover" style="height:110px">
+            <div class="sparks" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="coverTop">
+                <span class="chip"><i class="dot"></i> Payment</span>
+                <span class="chip">DhikzxCloud</span>
+            </div>
+        </header>
+
+        <section class="card pay" style="--accent:#25d366; margin-top:-34px; position:relative">
+            <h1 class="cardTitle" style="justify-content:center"><span class="cIcon"><i class="fas fa-qrcode"></i></span>QR Payment</h1>
+            <div class="qrWrap" id="qrWrap">
+                <img src="payment.jpg" alt="QR All Payment milik Dhikz" onerror="this.parentNode.classList.add('err')">
+                <p class="qrErr">Gambar QR belum tersedia. Hubungi via WhatsApp.</p>
+            </div>
+            <p class="payNote">Ini adalah QR <b>All Payment</b> milik Dhikz. Semua pembayaran ke Dhikz bisa lewat QR ini. Setelah bayar, kirim bukti ke WhatsApp ya.</p>
+            <div class="pjBtns center">
+                <a class="btn wa" href="https://wa.me/6285810287828" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Konfirmasi</a>
+                <a class="btn ghost" href="payment.jpg" download="payment-dhikz.jpg"><i class="fas fa-download"></i> Simpan QR</a>
+            </div>
+            <a class="back" href="../"><i class="fas fa-arrow-left"></i> Kembali ke profil</a>
+        </section>
+    </main>
+
+    <script src="../main.js"></script>
+</body>
+</html>
