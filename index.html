@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile DhikzxCloud | Developer Bot WhatsApp</title>
+    <title>DhikzxCloud | Developer Bot WhatsApp</title>
     <meta name="description" content="Halaman profil Dimas Mahardika, developer bot WhatsApp (Miwa Botz) dan coder asal Jakarta. Fokus pada JavaScript, Node.js, dan otomatisasi digital.">
     <meta name="keywords" content="Dimas Mahardika, DhikzxCloud, Miwa Botz, Bot WhatsApp, Developer JavaScript, Node.js, Jakarta, Coding">
     <meta name="author" content="Dimas Mahardika">
-    <meta name="theme-color" content="#0a0e1a">
+    <meta name="theme-color" content="#07050d">
 
     <!-- Share preview (ganti og:image dengan URL absolut setelah di-deploy) -->
     <meta property="og:type" content="website">
@@ -16,45 +16,42 @@
     <meta property="og:image" content="dikz.jpg">
     <meta name="twitter:card" content="summary">
 
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230a0e1a'/%3E%3Ctext x='32' y='43' font-size='30' font-family='Arial' font-weight='900' text-anchor='middle' fill='%2300c4cc'%3ED%3C/text%3E%3C/svg%3E">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2307050d'/%3E%3Ctext x='32' y='43' font-size='30' font-family='Arial' font-weight='900' text-anchor='middle' fill='%235aa9ff'%3ED%3C/text%3E%3C/svg%3E">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <canvas id="bg" aria-hidden="true"></canvas>
-    <div class="orb a" aria-hidden="true"></div>
-    <div class="orb b" aria-hidden="true"></div>
+    <div class="fx" aria-hidden="true">
+    <div class="bgPhoto"></div>
+        <div class="orb a"></div>
+    <div class="orb b"></div>
+    </div>
 
     <main class="pw">
 
-        <!-- ===== COVER ===== -->
-        <header class="cover">
-            <div class="sparks" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-            <div class="coverTop">
-                <span class="chip"><i class="dot"></i> Portfolio</span>
-                <span class="chip"><i class="fas fa-location-dot"></i> Jakarta, ID</span>
-            </div>
-        </header>
+        <!-- ===== TOP BAR ===== -->
+        <div class="coverTop">
+            <span class="chip"><i class="dot"></i> Portfolio</span>
+            <span class="chip"><i class="fas fa-location-dot"></i> Jakarta, ID</span>
+        </div>
 
         <!-- ===== IDENTITY ===== -->
         <section class="idWrap">
             <div class="avatarWrap">
-                <span class="orbit"></span>
-                <span class="orbit o2"></span>
                 <div class="avatarInner">
                     <picture>
                         <source srcset="dikz.webp" type="image/webp">
-                        <img class="avatar" src="dikz.jpg" width="104" height="104" alt="Foto Dhikzx Cloud, pengembang bot WhatsApp Lynxxx Botz">
+                        <img class="avatar" src="dikz.jpg" width="102" height="102" alt="Foto Dhikzx Cloud, pengembang bot WhatsApp Miwa Botz">
                     </picture>
                 </div>
             </div>
             <h1 class="pName">DHIKZX CLOUD</h1>
-            <p class="pNum" id="typed" data-text="Dimas Mahardika">Dimas Mahardika</p>
+            <p class="pNum">Dimas Mahardika</p>
             <div class="pBadge"><i class="fas fa-code"></i> Bot Developer</div>
             <p class="tagline">"Tidak semua bisa dimiliki, tetapi semuanya bisa disyukuri"</p>
         </section>
@@ -67,10 +64,10 @@
         </section>
 
         <!-- ===== TENTANG ===== -->
-        <section class="card reveal" style="--accent:#6cb8ff">
+        <section class="card reveal">
             <h2 class="cardTitle"><span class="cIcon"><i class="fas fa-user"></i></span>Tentang</h2>
             <div class="bio">
-                <p>Halo! Saya Dimas Mahardika, sosok di balik DhikzxCloud dan pengelola Lynxxx Botz. Saya berasal dari Jakarta dan aktif mengembangkan bot WhatsApp menggunakan JavaScript dan Node.js.</p>
+                <p>Halo! Saya Dimas Mahardika, sosok di balik DhikzxCloud dan pengelola Miwa Botz. Saya berasal dari Jakarta dan aktif mengembangkan bot WhatsApp menggunakan JavaScript dan Node.js.</p>
                 <p>Semuanya saya jalani bukan karena merasa jago, tapi karena niat, rasa ingin belajar, dan usaha untuk mencukupi kebutuhan lewat hal yang saya pahami. Buat saya, teknologi bukan cuma alat, tetapi juga ruang untuk terus berkembang dan berbagi.</p>
                 <p>Saya percaya, semua orang punya titik awal yang berbeda, tapi bukan berarti kita nggak bisa sampai ke tujuan yang sama. Nggak perlu sempurna untuk mulai, cukup berani untuk mencoba. Karena dari keberanian itulah kita belajar, berkembang, dan akhirnya menemukan versi terbaik dari diri sendiri.</p>
                 <p>Jadi buat kamu yang lagi belajar, jangan takut gagal. Fokus sama prosesnya, bukan hasil instan. Karena setiap langkah kecil hari ini, bisa jadi pijakan besar untuk masa depanmu. Terima kasih sudah mampir, semoga yang saya sampaikan bisa ada manfaatnya meskipun sederhana.</p>
@@ -78,23 +75,23 @@
         </section>
 
         <!-- ===== KEAHLIAN ===== -->
-        <section class="card reveal" style="--accent:#ffd23f">
+        <section class="card reveal">
             <h2 class="cardTitle"><span class="cIcon"><i class="fas fa-bolt"></i></span>Keahlian Teknis</h2>
             <div class="skills-grid">
-                <div class="skill" style="--tc:#f7df1e"><i class="fab fa-js"></i><span>JavaScript</span></div>
-                <div class="skill" style="--tc:#5fbf5f"><i class="fab fa-node-js"></i><span>Node.js</span></div>
-                <div class="skill" style="--tc:#f1502f"><i class="fab fa-git-alt"></i><span>Git &amp; GitHub</span></div>
-                <div class="skill" style="--tc:#47a248"><i class="fas fa-database"></i><span>MongoDB</span></div>
-                <div class="skill" style="--tc:#e34f26"><i class="fab fa-html5"></i><span>HTML5</span></div>
-                <div class="skill" style="--tc:#2d7bff"><i class="fab fa-css3-alt"></i><span>CSS3</span></div>
+                <div class="skill"><i class="fab fa-js"></i><span>JavaScript</span></div>
+                <div class="skill"><i class="fab fa-node-js"></i><span>Node.js</span></div>
+                <div class="skill"><i class="fab fa-git-alt"></i><span>Git &amp; GitHub</span></div>
+                <div class="skill"><i class="fas fa-database"></i><span>MongoDB</span></div>
+                <div class="skill"><i class="fab fa-html5"></i><span>HTML5</span></div>
+                <div class="skill"><i class="fab fa-css3-alt"></i><span>CSS3</span></div>
             </div>
         </section>
 
         <!-- ===== PROYEK ===== -->
-        <section class="card reveal" style="--accent:#ff5f8f">
+        <section class="card reveal">
             <h2 class="cardTitle"><span class="cIcon"><i class="fas fa-rocket"></i></span>Proyek Unggulan</h2>
 
-            <article class="project" data-cat="bot">
+            <article class="project">
                 <div class="pjTop">
                     <span class="pjLabel">WhatsApp Bot</span>
                 </div>
@@ -102,15 +99,14 @@
                 <p class="pjDesc">Bot WhatsApp berbasis Node.js dan Baileys yang menyediakan berbagai fitur otomatisasi dan hiburan. Proyek ini mengajarkan saya tentang manajemen sesi, parsing data, dan tahap meningkatkan fitur bot.</p>
                 <div class="tags"><span>Node.js</span><span>JavaScript</span><span>MongoDB</span><span>Baileys</span></div>
                 <div class="pjBtns">
-                    <a class="btn" href="https://wa.me/15814048209?text=.menu" target="_blank" rel="noopener"><i class="fas fa-robot"></i> Kunjungi Bot</a>
-                    <a class="btn wa" href="https://chat.whatsapp.com/DqXwXWlTbw342gRMN7ImNU" target="_blank" rel="noopener"><i class="fas fa-users"></i> Gabung Grup</a>
+                    <a class="btn" href="https://chat.whatsapp.com/DqXwXWlTbw342gRMN7ImNU" target="_blank" rel="noopener"><i class="fas fa-users"></i> Gabung Komunitas</a>
                 </div>
             </article>
 
-            <article class="project" data-cat="web">
+            <article class="project">
                 <div class="pjTop">
                     <span class="pjLabel">Web Game</span>
-                    <span class="pjBadge soon"><i class="fas fa-hammer"></i> Dalam Pengembangan</span>
+                    <span class="pjBadge"><i class="fas fa-hammer"></i> Dalam Pengembangan</span>
                 </div>
                 <h3>Games Hub</h3>
                 <p class="pjDesc">Kumpulan game 2 pemain online (Mario, Catur, Tic-Tac-Toe, Poker) dengan sinkronisasi realtime lewat Firebase Realtime Database.</p>
@@ -119,12 +115,12 @@
         </section>
 
         <!-- ===== KONTAK ===== -->
-        <section class="card reveal contact" style="--accent:#25d366">
+        <section class="card reveal contact">
             <h2 class="cardTitle"><span class="cIcon"><i class="fab fa-whatsapp"></i></span>Kontak</h2>
             <p class="cDesc">Mau tanya, kerja sama, atau bikin bot? Chat langsung aja.</p>
             <div class="pjBtns center">
-                <button class="btn wa" type="button" id="btnWA" aria-label="Chat lewat WhatsApp"><i class="fab fa-whatsapp"></i> Chat WhatsApp</button>
-                <a class="btn" href="payment/"><i class="fas fa-qrcode"></i> QR Payment</a>
+                <button class="btn" type="button" id="btnWA" aria-label="Chat lewat WhatsApp"><i class="fab fa-whatsapp"></i> Chat WhatsApp</button>
+                <a class="btn ghost" href="payment/"><i class="fas fa-qrcode"></i> QR Payment</a>
             </div>
         </section>
 

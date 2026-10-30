@@ -1,8 +1,12 @@
 # DhikzxCloud - Profil
 
-Web profil statis (HTML + CSS + JS), tanpa build step. Buka `index.html` atau deploy ke GitHub Pages / Netlify / Vercel.
+Web profil statis (HTML + CSS + JS), tanpa build step. Deploy ke GitHub Pages / Netlify / Vercel.
 
-- Warna aksen: ubah `--glow` di `styles.css`
-- Proyek: tambah/edit blok `<article class="project">` di `index.html`
-- Nomor WhatsApp kontak: konstanta `WA_CONTACT` di `main.js`
-- Halaman QR Payment: `payment/index.html` (akses lewat `/payment`). Taruh gambar QR di `payment/payment.jpg`.
+File yang perlu kamu taruh sendiri:
+- `wpbgpp.jpg` di folder utama (wallpaper atas, memudar ke bawah)
+- `payment/payment.jpg` (gambar QR All Payment)
+
+Edit cepat:
+- Warna: variabel di atas `styles.css` (`--blue` = satu-satunya warna terang)
+- Tinggi wallpaper: `.bgPhoto { height }` di `styles.css`
+- Nomor WhatsApp kontak: `WA_CONTACT` di `main.js`
