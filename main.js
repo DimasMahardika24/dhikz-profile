@@ -32,6 +32,63 @@
         });
     });
 
+    /* ===== Background partikel (canvas) ===== */
+    const canvas = document.getElementById('bg');
+    if (canvas && !reduceMotion) {
+        const ctx = canvas.getContext('2d');
+        let w = 0, h = 0, dots = [], raf = 0;
+        const LINK = 120;
+
+        function resize() {
+            const dpr = Math.min(window.devicePixelRatio || 1, 2);
+            w = window.innerWidth; h = window.innerHeight;
+            canvas.width = w * dpr; canvas.height = h * dpr;
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            const count = Math.min(70, Math.floor((w * h) / 18000));
+            dots = Array.from({ length: count }, () => ({
+                x: Math.random() * w, y: Math.random() * h,
+                vx: (Math.random() - .5) * .35, vy: (Math.random() - .5) * .35,
+                r: Math.random() * 1.4 + .6
+            }));
+        }
+
+        function frame() {
+            ctx.clearRect(0, 0, w, h);
+            for (let i = 0; i < dots.length; i++) {
+                const a = dots[i];
+                a.x += a.vx; a.y += a.vy;
+                if (a.x < 0 || a.x > w) a.vx *= -1;
+                if (a.y < 0 || a.y > h) a.vy *= -1;
+                ctx.beginPath();
+                ctx.arc(a.x, a.y, a.r, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(120,180,255,.7)';
+                ctx.fill();
+                for (let k = i + 1; k < dots.length; k++) {
+                    const b = dots[k];
+                    const d = Math.hypot(a.x - b.x, a.y - b.y);
+                    if (d < LINK) {
+                        ctx.strokeStyle = 'rgba(140,110,255,' + (0.22 * (1 - d / LINK)).toFixed(3) + ')';
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.moveTo(a.x, a.y);
+                        ctx.lineTo(b.x, b.y);
+                        ctx.stroke();
+                    }
+                }
+            }
+            raf = requestAnimationFrame(frame);
+        }
+
+        resize();
+        frame();
+        window.addEventListener('resize', resize);
+        // hemat baterai: berhenti saat tab disembunyikan
+        document.addEventListener('visibilitychange', () => {
+            cancelAnimationFrame(raf);
+            if (!document.hidden) frame();
+        });
+    }
+
     /* ===== Modal sendiri (pengganti SweetAlert) ===== */
     if (!document.getElementById('modal')) return; // halaman /payment tidak punya modal
     const modal = document.getElementById('modal');
