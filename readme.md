@@ -1,12 +1,8 @@
+# DhikzxCloud - Profil
 
-🔗 Repo: [https://github.com/ziihost/portofolio](https://github.com/Alifatahfauzi/porto-me)  
+Web profil statis (HTML + CSS + JS), tanpa build step. Buka `index.html` atau deploy ke GitHub Pages / Netlify / Vercel.
 
----
-
-## Fauzialifatah - Portofolio 
-
-<p align="left">
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" width="40" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" width="40" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" width="40" />
-</p>
+- Warna aksen: ubah `--glow` di `styles.css`
+- Proyek: tambah/edit blok `<article class="project">` di `index.html`
+- Nomor WhatsApp kontak: konstanta `WA_CONTACT` di `main.js`
+- Halaman QR Payment: `payment/index.html` (akses lewat `/payment`). Taruh gambar QR di `payment/payment.jpg`.

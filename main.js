@@ -1,86 +1,147 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const binaryRain = document.getElementById('binaryRain');
-    // Ganti '01' dengan karakter tambahan
-    const binaryChars = '01ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&'; 
-    let columns = Math.floor(window.innerWidth / 20);
-    let rows = Math.floor(window.innerHeight / 24);
+(function () {
+    'use strict';
 
-    function createBinaryRain() {
-        let output = '';
-        for (let r = 0; r < rows; r++) {
-            let line = '';
-            for (let c = 0; c < columns; c++) {
-                line += binaryChars[Math.floor(Math.random() * binaryChars.length)];
-            }
-            output += line + '\n';
-        }
-        binaryRain.textContent = output;
-    }
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    createBinaryRain();
+    /* ===== Tahun footer otomatis ===== */
+    const year = document.getElementById('year');
+    if (year) year.textContent = new Date().getFullYear();
 
-    // Pastikan card ada sebelum menambahkan event listener
-    const card = document.querySelector('.profile-card'); // Ganti .hologram-card menjadi .profile-card karena di HTML Anda menggunakan .profile-card
-
-    if (card) {
-        // Interval yang lebih cepat untuk efek "Matrix" yang lebih intens (opsional)
-        let row = 0;
-        const binaryInterval = setInterval(() => {
-            const lines = binaryRain.textContent.split('\n');
-            lines[row] = lines[row].split('').map(() =>
-                binaryChars[Math.floor(Math.random() * binaryChars.length)]
-            ).join('');
-            binaryRain.textContent = lines.join('\n');
-            row = (row + 1) % rows;
-        }, 80); // Diubah dari 100ms menjadi 80ms
-
-        window.addEventListener('mousemove', (e) => {
-            const x = e.clientX - window.innerWidth / 2;
-            const y = e.clientY - window.innerHeight / 2;
-
-            const tiltX = (y / window.innerHeight) * 10;
-            const tiltY = -(x / window.innerWidth) * 10;
-            const depth = Math.sqrt(x * x + y * y) / 100;
-
-            card.style.transform = `
-                rotateX(${tiltX}deg) 
-                rotateY(${tiltY}deg) 
-                translateZ(${depth * 20}px)
-            `;
-
-            card.style.boxShadow = `
-                ${x / 20}px ${y / 20}px 30px rgba(0,0,0,0.7),
-                0 0 0 1px rgba(255,255,255,0.1)
-            `;
-        });
-
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = 'rotateX(0) rotateY(0) translateZ(0)';
-            card.style.boxShadow = `
-                0 0 0 1px rgba(255,255,255,0.1),
-                0 0 30px rgba(0,0,0,0.5)
-            `;
-        });
-        
-        // Menghapus fungsi createGrid karena elemen tersebut tidak ada di HTML Anda
-        // dan Anda sudah memiliki efek partikel di background.
+    /* ===== Reveal saat scroll ===== */
+    const reveals = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window && !reduceMotion) {
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach((en) => {
+                if (en.isIntersecting) {
+                    en.target.classList.add('in');
+                    io.unobserve(en.target);
+                }
+            });
+        }, { threshold: 0.12 });
+        reveals.forEach((el) => io.observe(el));
     } else {
-        // Jika card tidak ditemukan, hanya jalankan binary rain
-        let row = 0;
-        setInterval(() => {
-            const lines = binaryRain.textContent.split('\n');
-            lines[row] = lines[row].split('').map(() =>
-                binaryChars[Math.floor(Math.random() * binaryChars.length)]
-            ).join('');
-            binaryRain.textContent = lines.join('\n');
-            row = (row + 1) % rows;
-        }, 80);
+        reveals.forEach((el) => el.classList.add('in'));
     }
 
-
-    window.addEventListener('resize', () => {
-        columns = Math.floor(window.innerWidth / 20);
-        rows = Math.floor(window.innerHeight / 24);
-        createBinaryRain();
+    /* ===== Cahaya kartu ngikutin kursor ===== */
+    document.querySelectorAll('.card').forEach((card) => {
+        card.addEventListener('pointermove', (e) => {
+            const r = card.getBoundingClientRect();
+            card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+            card.style.setProperty('--my', (e.clientY - r.top) + 'px');
+        });
     });
-});
+
+    /* ===== Background partikel (canvas) ===== */
+    const canvas = document.getElementById('bg');
+    if (canvas && !reduceMotion) {
+        const ctx = canvas.getContext('2d');
+        let w = 0, h = 0, dots = [], raf = 0;
+        const LINK = 120;
+
+        function resize() {
+            const dpr = Math.min(window.devicePixelRatio || 1, 2);
+            w = window.innerWidth; h = window.innerHeight;
+            canvas.width = w * dpr; canvas.height = h * dpr;
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            const count = Math.min(70, Math.floor((w * h) / 20000));
+            dots = Array.from({ length: count }, () => ({
+                x: Math.random() * w, y: Math.random() * h,
+                vx: (Math.random() - .5) * .35, vy: (Math.random() - .5) * .35,
+                r: Math.random() * 1.4 + .6
+            }));
+        }
+
+        function frame() {
+            ctx.clearRect(0, 0, w, h);
+            for (let i = 0; i < dots.length; i++) {
+                const a = dots[i];
+                a.x += a.vx; a.y += a.vy;
+                if (a.x < 0 || a.x > w) a.vx *= -1;
+                if (a.y < 0 || a.y > h) a.vy *= -1;
+                ctx.beginPath();
+                ctx.arc(a.x, a.y, a.r, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(0,196,204,.65)';
+                ctx.fill();
+                for (let j = i + 1; j < dots.length; j++) {
+                    const b = dots[j];
+                    const d = Math.hypot(a.x - b.x, a.y - b.y);
+                    if (d < LINK) {
+                        ctx.strokeStyle = 'rgba(0,196,204,' + (0.16 * (1 - d / LINK)).toFixed(3) + ')';
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.moveTo(a.x, a.y);
+                        ctx.lineTo(b.x, b.y);
+                        ctx.stroke();
+                    }
+                }
+            }
+            raf = requestAnimationFrame(frame);
+        }
+
+        resize();
+        frame();
+        window.addEventListener('resize', resize);
+        // hemat baterai: berhenti saat tab disembunyikan
+        document.addEventListener('visibilitychange', () => {
+            cancelAnimationFrame(raf);
+            if (!document.hidden) frame();
+        });
+    }
+
+    /* ===== Modal sendiri (pengganti SweetAlert) ===== */
+    if (!document.getElementById('modal')) return; // halaman /payment tidak punya modal
+    const modal = document.getElementById('modal');
+    const mIcon = document.getElementById('mIcon');
+    const mTitle = document.getElementById('mTitle');
+    const mText = document.getElementById('mText');
+    const mOk = document.getElementById('mOk');
+    const mCancel = document.getElementById('mCancel');
+    let onOk = null;
+    let lastFocus = null;
+
+    function openModal(opts) {
+        lastFocus = document.activeElement;
+        mIcon.className = 'mIcon' + (opts.iconClass ? ' ' + opts.iconClass : '');
+        mIcon.innerHTML = opts.icon;
+        mTitle.textContent = opts.title;
+        mText.textContent = opts.text;
+        mOk.textContent = opts.okText || 'OK';
+        mCancel.textContent = opts.cancelText || 'Batal';
+        mCancel.hidden = !opts.showCancel;
+        onOk = opts.onOk || null;
+        modal.hidden = false;
+        mOk.focus();
+    }
+
+    function closeModal() {
+        modal.hidden = true;
+        onOk = null;
+        if (lastFocus && lastFocus.focus) lastFocus.focus();
+    }
+
+    mOk.addEventListener('click', () => {
+        const cb = onOk;
+        closeModal();
+        if (cb) cb();
+    });
+    mCancel.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.hidden) closeModal(); });
+
+    /* ===== Tombol ===== */
+    const WA_CONTACT = 'https://wa.me/6285810287828';
+
+    document.getElementById('btnWA').addEventListener('click', () => {
+        openModal({
+            icon: '<i class="fab fa-whatsapp"></i>',
+            iconClass: 'wa',
+            title: 'Lanjut ke WhatsApp?',
+            text: 'Kamu akan diarahkan ke chat WhatsApp.',
+            showCancel: true,
+            okText: 'Ya, lanjut',
+            cancelText: 'Batal',
+            onOk: () => window.open(WA_CONTACT, '_blank', 'noopener')
+        });
+    });
+})();
